@@ -15,25 +15,13 @@ function printMyLibrary() {
     console.table(myLibrary);
 }
 
-// const book1 = new Book("Mary HK Choi", "Yolk", "600", "no");
-// const book2 = new Book("Rick Riordan", "Percy Jackson and the Olympians", "350", "yes");
-// addBookToLibrary(book1);
-// addBookToLibrary(book2);
-// printMyLibrary();
-
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
 const newBook = document.querySelector("#newBook");
 
 //Show dialog
 showButton.addEventListener("click", () => {
     dialog.showModal();
-})
-
-//close dialog
-closeButton.addEventListener("click", () => {
-    dialog.close();
 })
 
 newBook.addEventListener("submit", (e) => {
