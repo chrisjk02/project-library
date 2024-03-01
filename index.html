@@ -15,16 +15,25 @@
             <label>AUTHOR <input type="text" id="author" required></label>
             <label>TITLE <input type="text" id="title" required></label>
             <label>PAGES <input type="text" id="pages" required></label>
-            <label>FINISHED <input type="text" id="isRead" required></label>
+            <label>FINISHED
+                <div class="radioBtns">
+                    <div class="radio-button">
+                        <label for="isRead">YES</label>
+                        <input type="radio" id="isRead" value="yes" required>
+                    </div>
+                    <div class="radio-button">
+                        <label for="isNotRead">NO</label>
+                        <input type="radio" id="isNotRead" value="no" required>
+                    </div>
+                </div>
+            </label>
 
             <div class="submit">
                 <button id="submitBtn" type="submit" value="default">SUBMIT</button>
             </div>
         </form>
     </dialog>
-
-    <button>NEW BOOK</button>
-
+    <button id="newBook">NEW BOOK</button>
     <section id="library"></section>
 </body>
 
