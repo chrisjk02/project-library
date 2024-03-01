@@ -1,5 +1,5 @@
 html {
-    font-family: monospace;
+    font-family: "Space Mono", sans-serif;
 }
 
 button {
@@ -10,10 +10,15 @@ button {
     padding: 8px;
     border-radius: 1rem;
     text-align: center;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 16px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deleteButton {
+    width: 12px;
 }
 
 button:hover {
@@ -54,7 +59,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -87,6 +92,10 @@ input[type="number"] {
     padding: 8px;
 }
 
+input[type="radio"] {
+    cursor: pointer;
+}
+
 #library {
     padding: 20px;
     display: grid;
@@ -107,7 +116,13 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: flex-start;
+    font-size: 16px;
     animation: fade-down 0.5s;
+}
+
+.card div:nth-child(2) {
+    font-style: italic;
 }
 
 /* KEYFRAMES */
