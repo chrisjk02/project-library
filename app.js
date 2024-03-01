@@ -51,7 +51,7 @@ newBook.addEventListener("submit", (e) => {
     const author = document.querySelector("#author");
     const title = document.querySelector("#title");
     const pages = document.querySelector("#pages");
-    const isRead = document.querySelector("#isRead");
+    const isRead = document.querySelector('input[name="isRead"]:checked');
 
     addBookToLibrary(new Book(author.value, title.value, pages.value, isRead.value));
     printMyLibrary();
