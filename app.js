@@ -1,4 +1,8 @@
 const myLibrary = [];
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const newBook = document.querySelector("#newBook");
+const sectionLibrary = document.querySelector("#library");
 
 function Book(author, title, pages, isRead) {
     this.author = author;
@@ -12,12 +16,28 @@ function addBookToLibrary(book) {
 }
 
 function printMyLibrary() {
-    console.table(myLibrary);
+    const cardHTML = generateCard(myLibrary);
 }
 
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const newBook = document.querySelector("#newBook");
+function generateCard(data) {
+    const newCard = document.createElement('div');
+    newCard.classList.add('card');
+
+    const authorText = document.createElement('div');
+    const titleText = document.createElement('div');
+    const pagesText = document.createElement('div');
+    const isReadText = document.createElement('div');
+
+    data.forEach(element => {
+        authorText.textContent = element.author;
+        titleText.textContent = element.title;
+        pagesText.textContent = element.pages;
+        isReadText.textContent = element.isRead;
+        newCard.append(authorText, titleText, pagesText, isReadText);
+    });
+
+    sectionLibrary.appendChild(newCard);
+}
 
 //Show dialog
 showButton.addEventListener("click", () => {
