@@ -58,5 +58,4 @@ newBook.addEventListener("submit", (e) => {
     author.value = '';
     title.value = '';
     pages.value = '';
-    isRead.value = '';
 })
