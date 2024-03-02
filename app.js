@@ -39,7 +39,7 @@ function generateCard(data) {
         bookCard.appendChild(cardPages);
 
         const cardIsRead = document.createElement('div');
-        cardIsRead.textContent = `${book.isRead ? "Yes" : "No"}`;
+        cardIsRead.textContent = `${book.isRead}`;
         bookCard.appendChild(cardIsRead);
 
         const removeButton = document.createElement('button');
