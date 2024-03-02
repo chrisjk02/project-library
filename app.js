@@ -1,10 +1,8 @@
-const myLibrary = [];
+let myLibrary = [];
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const newBook = document.querySelector("#newBook");
 const sectionLibrary = document.querySelector("#library");
-
-const xmlns = "http://www.w3.org/2000/svg";
 
 function Book(author, title, pages, isRead) {
     this.author = author;
@@ -18,40 +16,24 @@ function addBookToLibrary(book) {
 }
 
 function printMyLibrary() {
-    const cardHTML = generateCard(myLibrary);
+    generateCard(myLibrary);
 }
 
 function generateCard(data) {
-    const newCard = document.createElement('div');
-    newCard.classList.add('card');
+    sectionLibrary.innerHTML = '';
 
-    const authorText = document.createElement('div');
-    const titleText = document.createElement('div');
-    const pagesText = document.createElement('div');
-    const isReadText = document.createElement('div');
-    const deleteBtn = document.createElement('button');
-    const svgDelete = document.createElementNS(xmlns, "svg");
-    svgDelete.setAttributeNS(null, "viewBox", "0 0 448 512");
-    const path = document.createElementNS(xmlns, "path");
-    path.setAttributeNS(null, "d", "M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z");
-    deleteBtn.classList.add("deleteButton");
+    data.forEach((book, index) => {
+        const bookCard = document.createElement('div');
+        bookCard.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.isRead ? 'Yes' : 'No'}`;
+        bookCard.classList.add('card');
 
-    svgDelete.appendChild(path);
-    deleteBtn.appendChild(svgDelete);
+        const removeButton = document.createElement('button');
+        removeButton.textContent = "Remove";
+        removeButton.setAttribute("data-index", index);
+        removeButton.addEventListener("click", removeBookFromLibrary);
 
-    data.forEach(element => {
-        authorText.textContent = element.author;
-        titleText.textContent = element.title;
-        pagesText.textContent = element.pages + " pages";
-        isReadText.textContent = element.isRead;
-        newCard.append(authorText, titleText, pagesText, isReadText, deleteBtn);
-    });
-
-    sectionLibrary.appendChild(newCard);
-
-    const items = document.querySelectorAll('.deleteButton');
-    myLibrary.forEach((item, index) => {
-        items[index].dataset.index = index;
+        bookCard.appendChild(removeButton);
+        sectionLibrary.appendChild(bookCard);
     });
 }
 
@@ -75,3 +57,9 @@ newBook.addEventListener("submit", (e) => {
     title.value = '';
     pages.value = '';
 })
+
+function removeBookFromLibrary() {
+    const bookIndex = this.getAttribute("data-index");
+    myLibrary.splice(bookIndex, 1);
+    printMyLibrary();
+}
