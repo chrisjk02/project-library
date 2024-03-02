@@ -24,14 +24,28 @@ function generateCard(data) {
 
     data.forEach((book, index) => {
         const bookCard = document.createElement('div');
-        bookCard.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.isRead ? 'Yes' : 'No'}`;
         bookCard.classList.add('card');
+
+        const cardAuthor = document.createElement('div');
+        cardAuthor.textContent = book.author;
+        bookCard.appendChild(cardAuthor);
+
+        const cardTitle = document.createElement('div');
+        cardTitle.textContent = book.title;
+        bookCard.appendChild(cardTitle);
+
+        const cardPages = document.createElement('div');
+        cardPages.textContent = book.pages;
+        bookCard.appendChild(cardPages);
+
+        const cardIsRead = document.createElement('div');
+        cardIsRead.textContent = `${book.isRead ? "Yes" : "No"}`;
+        bookCard.appendChild(cardIsRead);
 
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
         removeButton.setAttribute("data-index", index);
         removeButton.addEventListener("click", removeBookFromLibrary);
-
         bookCard.appendChild(removeButton);
         sectionLibrary.appendChild(bookCard);
     });

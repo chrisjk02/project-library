@@ -24,10 +24,24 @@ button {
     margin: 0;
 }
 
+.card button {
+    align-self: center;
+    width: 75px;
+    height: 15px;
+    font-size: 12px;
+    background-color: rgb(192, 192, 192);
+    transition: transform 0.5s ease, box-shadow 0.5 ease;
+}
+
 button:hover {
     background-color: #da5df6;
-    transform: translateY(-5px);
+    transform: translateY(-1px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card button:hover {
+    background-color: #f65050c4;
+    transform: translateY(-1px);
 }
 
 dialog {
