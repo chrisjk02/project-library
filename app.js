@@ -42,6 +42,10 @@ function generateCard(data) {
         cardIsRead.textContent = `${book.isRead}`;
         bookCard.appendChild(cardIsRead);
 
+        const cardChangeIsRead = document.createElement('button');
+        cardChangeIsRead.textContent = "Status";
+        bookCard.appendChild(cardChangeIsRead);
+
         const removeButton = document.createElement('button');
         removeButton.textContent = "Remove";
         removeButton.setAttribute("data-index", index);
