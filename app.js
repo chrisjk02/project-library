@@ -44,6 +44,8 @@ function generateCard(data) {
 
         const cardChangeIsRead = document.createElement('button');
         cardChangeIsRead.textContent = "Status";
+        cardChangeIsRead.setAttribute("data-index", index);
+        cardChangeIsRead.addEventListener("click", changeReadStatus);
         bookCard.appendChild(cardChangeIsRead);
 
         const removeButton = document.createElement('button');
@@ -75,6 +77,10 @@ newBook.addEventListener("submit", (e) => {
     title.value = '';
     pages.value = '';
 })
+
+Book.prototype.changeReadStatus = function () {
+    const bookIndex = this.getAttribute("data-index");
+}
 
 function removeBookFromLibrary() {
     const bookIndex = this.getAttribute("data-index");
