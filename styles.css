@@ -17,6 +17,12 @@ button {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.flex-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .deleteButton {
     width: 12px;
     background: none;
@@ -130,16 +136,51 @@ input[type="radio"] {
     padding: 16px;
     width: 300px;
     height: 200px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
     gap: 8px;
-    align-items: flex-start;
     font-size: 16px;
     animation: fade-down 0.5s;
 }
 
 .card div:nth-child(2) {
     font-style: italic;
+    grid-row: 2 / 3;
+}
+
+.card div:nth-child(3) {
+    grid-row: 3 / 4;
+}
+
+.card div:nth-child(4) {
+    font-weight: bold;
+    grid-row: 4 / 5;
+    grid-column: 1 / 3;
+}
+
+.card div:nth-child(5) {
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+}
+
+.card button {
+    grid-row: 5 / 6;
+    grid-column: 1 / 3;
+    place-self: center;
+}
+
+.read-status-btn {
+    all: unset;
+}
+
+.read-status-btn svg {
+    width: 13px;
+}
+
+.read-status-btn:hover {
+    all: unset;
+    cursor: pointer;
 }
 
 /* KEYFRAMES */
